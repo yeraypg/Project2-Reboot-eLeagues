@@ -18,10 +18,20 @@ POST   | /auth/checkRol   | YES   | YES | User Rol Check           | -          
 ### Profile Endpoints
 
 
+METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
+-------|------------------|-------|--------------------------------|-------------------------------------------------|--------------------
+GET    | /profile         | YES   | -   | View own user profile    | -                                               | name, nick, email, age, team, rol, games, trophies 
+PUT    | /profile         | YES   | Update own user profile  | name, nick, email, age, team, games             | Updated user data
+DELETE | /profile         | YES   | Deletes own user account | password                                        | User deletion confirmation
+
+
+### Team Endpoints
+
+
 METHOD | ENDPOINT         | TOKEN | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|--------------------------|-------------------------------------------------|--------------------
-GET    | /profile         | YES   | View own user profile    | -                                               | name, nick, email, age, team, rol, games, trophies 
-PUT    | /profile         | YES   | Update own user profile  | name, nick, email, age, team, games             | Updated user data
+GET    | /team            | YES   | View own user team       | -                                               | name, teams 
+PUT    | /team            | YES   | Update own user team     | nick, team                                      | Updated user data
 DELETE | /profile         | YES   | Deletes own user account | password                                        | User deletion confirmation
 
 
