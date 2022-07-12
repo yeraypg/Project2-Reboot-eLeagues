@@ -15,7 +15,7 @@ POST   | /auth/check      | YES   | -   | Auth Token check         | -          
 POST   | /auth/checkRol   | YES   | YES | User Rol Check           | email                                           | role
 
 
-### Profile Endpoints
+### User Endpoints
 
 
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
