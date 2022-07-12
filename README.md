@@ -46,6 +46,7 @@ METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS
 GET    | /league          | YES   | -   | View all leagues         | -                                               | leagues 
 GET    | /league/:ID      | YES   | O   | View one league by ID    | leagueID                                        | leagues by status (open, close) 
 PUT    | /league          | YES   | O   | Update own user league   | leagueID, data                                  | Updated league data
+PUT    | /league/:ID/winners | YES   | O   | Update own user league   | leagueID, data                                  | Updated league data
 DELETE | /league          | YES   | O   | Delete own league        | leagueID                                        | League deletion confirmation
 POST   | /league          | YES   | O   | Create new league        | name, Trophie, Game                             | name, teams, organizer, Trophie, game, status 
 
