@@ -42,12 +42,13 @@ POST   | /team            | YES   | User| Create new team          | name       
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
 GET    | /league          | YES   | -   | View all leagues         | -                                               | leagues 
+GET    | /league/status   | YES   | -   | View leagues by status   | -                                               | leagues by status (open, close) 
 PUT    | /league          | YES   | O   | Update own user league   | leagueID, data                                  | Updated league data
 DELETE | /league          | YES   | O   | Delete own league        | leagueID                                        | League deletion confirmation
 POST   | /league          | YES   | O   | Create new league        | name, Trophie, Game                             | name, teams, organizer, Trophie, game, status 
 
 
-### Games Endpoints
+### Game Endpoints
 
 
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
@@ -58,7 +59,7 @@ DELETE | /game            | YES   | O   | Delete game              | gameID     
 POST   | /game            | YES   | O   | Create new game          | name, categories, company                       | name, categories, image, company
 
 
-### Trophies Endpoints
+### Trophy Endpoints
 
 
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
@@ -69,7 +70,15 @@ DELETE | /trophy          | YES   | O   | Delete trophy            | trophyID   
 POST   | /trophy          | YES   | O   | Create new trophy        | name                                            | name, image
 
 
+### Category Endpoints
 
+
+METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
+-------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
+GET    | /category        | YES   | -   | View all categories      | -                                               | categories 
+PUT    | /category        | YES   | O   | Update category          | categoryID, data                                | Updated category data
+DELETE | /category        | YES   | O   | Delete category          | categoryID                                      | category deletion confirmation
+POST   | /category        | YES   | O   | Create new category      | name                                            | name
 
 
 
