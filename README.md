@@ -11,8 +11,6 @@ METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
 POST   | /auth/signup     | -     | -   | User Signup              | name, username, email, password                 | token
 POST   | /auth/login      | -     | -   | User Login               | username, password                              | token
-POST   | /auth/check      | YES   | -   | Auth Token check         | -                                               | 
-POST   | /auth/checkRol   | YES   | YES | User Rol Check           | email                                           | role
 
 
 ### User Endpoints
@@ -20,11 +18,11 @@ POST   | /auth/checkRol   | YES   | YES | User Rol Check           | email      
 
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
-GET    | /user            | YES   | -   | View own user profile    | -                                               | name, nick, email, age, team, rol, games, trophies
+GET    | /user/profile    | YES   | -   | View own user profile    | -                                               | name, nick, email, age, team, rol, games, trophies
 GET    | /user/:ID        | YES   | O   | View user profile by ID  | userID                                          | name, nick, email, age, team, rol, games, trophies
-PUT    | /user            | YES   | -   | Update own user profile  | data                                            | Updated user data
+PUT    | /user/profile    | YES   | -   | Update own user profile  | data                                            | Updated user data
 PUT    | /user/:ID        | YES   | O   | Update user profile by ID| userID, Data                                    | Updated user data
-DELETE | /user            | YES   | -   | Delete own user account  | password                                        | User deletion confirmation
+DELETE | /user/profile    | YES   | -   | Delete own user account  | password                                        | User deletion confirmation
 DELETE | /user/:ID        | YES   | O   | Delete user by ID        | userID                                          | User deletion confirmation
 
 
