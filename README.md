@@ -18,8 +18,8 @@ POST   | /auth/login      | -     | -   | User Login               | username, p
 
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
-GET    | /user/profile    | YES   | -   | View own user profile    | -                                               | name, nick, email, age, team, rol, games, trophies
-GET    | /user/:ID        | YES   | O   | View user profile by ID  | userID                                          | name, nick, email, age, team, rol, games, trophies
+GET    | /user/profile    | YES   | -   | View own user profile    | -                                         | name, nick, email, age, team, rol, games, trophies
+GET    | /user/:ID        | YES   | O   | View user profile by ID  |                                           | name, nick, email, age, team, rol, games, trophies
 PUT    | /user/profile    | YES   | -   | Update own user profile  | data                                            | Updated user data
 PUT    | /user/:ID        | YES   | O   | Update user profile by ID| userID, Data                                    | Updated user data
 DELETE | /user/profile    | YES   | -   | Delete own user account  | password                                        | User deletion confirmation
@@ -32,8 +32,9 @@ DELETE | /user/:ID        | YES   | O   | Delete user by ID        | userID     
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
 GET    | /team            | YES   | -   | View all teams           | -                                               | teams 
-GET    | /team/:ID        | YES   | O   | View one team by ID      | teamID                                          | team
+GET    | /team/:ID        | YES   | O   | View one team by ID      |                                                 | team
 PUT    | /team            | YES   | TL  | Update own user team     | data                                            | Updated team data
+PUT    | /team/:ID        | YES   | O   | Update one team by ID    | data                                            | Updated team data
 DELETE | /team            | YES   | TL  | Delete own team          | teamID                                          | Team deletion confirmation
 POST   | /team            | YES   | User| Create new team          | name                                            | name, players, leader 
 
@@ -46,7 +47,7 @@ METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS
 GET    | /league          | YES   | -   | View all leagues         | -                                               | leagues 
 GET    | /league/:ID      | YES   | O   | View one league by ID    | leagueID                                        | leagues by status (open, close) 
 PUT    | /league          | YES   | O   | Update own user league   | leagueID, data                                  | Updated league data
-PUT    | /league/:ID/winners | YES   | O   | Update own user league   | leagueID, data                                  | Updated league data
+PUT    | /league/:ID/winners | YES   | O   | Assign Trophy         | teamID                                          | team players, trophy
 DELETE | /league          | YES   | O   | Delete own league        | leagueID                                        | League deletion confirmation
 POST   | /league          | YES   | O   | Create new league        | name, Trophie, Game                             | name, teams, organizer, Trophie, game, status 
 
