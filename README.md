@@ -19,7 +19,7 @@ POST   | /auth/checkRol   | YES   | YES | User Rol Check           | -          
 
 
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
--------|------------------|-------|--------------------------------|-------------------------------------------------|--------------------
+-------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
 GET    | /profile         | YES   | -   | View own user profile    | -                                               | name, nick, email, age, team, rol, games, trophies 
 PUT    | /profile         | YES   | Update own user profile  | name, nick, email, age, team, games             | Updated user data
 DELETE | /profile         | YES   | Deletes own user account | password                                        | User deletion confirmation
