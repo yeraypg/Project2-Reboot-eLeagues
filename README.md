@@ -21,7 +21,7 @@ METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS
 GET    | /user/profile    | YES   | -   | View own user profile    | -                                         | name, nick, email, age, team, rol, games, trophies
 GET    | /user/:ID        | YES   | O   | View user profile by ID  |                                           | name, nick, email, age, team, rol, games, trophies
 PUT    | /user/profile    | YES   | -   | Update own user profile  | data                                            | Updated user data
-PUT    | /user/:ID        | YES   | O   | Update user profile by ID| userID, Data                                    | Updated user data
+PUT    | /user/:ID        | YES   | O   | Update user profile by ID| Data                                            | Updated user data
 DELETE | /user/profile    | YES   | -   | Delete own user account  | password                                        | User deletion confirmation
 DELETE | /user/:ID        | YES   | O   | Delete user by ID        | userID                                          | User deletion confirmation
 
@@ -46,8 +46,7 @@ POST   | /team            | YES   | User| Create new team          | name       
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
 GET    | /league          | YES   | -   | View all leagues         | -                                               | leagues 
-GET    | /league/:ID      | YES   | O   | View one league by ID    | leagueID                                        | leagues by status (open, close) 
-PUT    | /league          | YES   | O   | Update own user league   | leagueID, data                                  | Updated league data
+GET    | /league/:ID      | YES   | O   | View one league by ID    |                                                 | leagues by status (open, close) 
 PUT    | /league/:ID      | YES   | O   | Update one league by ID  | data                                            | Updated league data
 PUT    | /league/:ID/winners | YES   | O   | Assign Trophy         | teamID                                          | team players, trophy
 DELETE | /league/:ID      | YES   | O   | Delete one league by ID  |                                                 | League deletion confirmation
