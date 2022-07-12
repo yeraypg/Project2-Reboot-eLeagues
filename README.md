@@ -12,7 +12,7 @@ METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS
 POST   | /auth/signup     | -     | -   | User Signup              | name, username, email, password                 | token
 POST   | /auth/login      | -     | -   | User Login               | username, password                              | token
 POST   | /auth/check      | YES   | -   | Auth Token check         | -                                               | 
-POST   | /auth/checkRol   | YES   | YES | User Rol Check           | -                                               | role
+POST   | /auth/checkRol   | YES   | YES | User Rol Check           | email                                           | role
 
 
 ### Profile Endpoints
@@ -21,8 +21,8 @@ POST   | /auth/checkRol   | YES   | YES | User Rol Check           | -          
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
 GET    | /profile         | YES   | -   | View own user profile    | -                                               | name, nick, email, age, team, rol, games, trophies 
-PUT    | /profile         | YES   | -   | Update own user profile  | name, nick, email, age, team, games             | Updated user data
-DELETE | /profile         | YES   | -   | Deletes own user account | password                                        | User deletion confirmation
+PUT    | /profile         | YES   | -   | Update own user profile  | userID, data                                    | Updated user data
+DELETE | /profile         | YES   | -   | Delete own user account  | password                                        | User deletion confirmation
 
 
 ### Team Endpoints
@@ -31,8 +31,8 @@ DELETE | /profile         | YES   | -   | Deletes own user account | password   
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
 GET    | /team            | YES   | -   | View all teams           | -                                               | teams 
-PUT    | /team            | YES   | TL  | Update own user team     | team, params                                    | Updated team data
-DELETE | /team            | YES   | TL  | Deletes own team         | password                                        | Team deletion confirmation
+PUT    | /team            | YES   | TL  | Update own user team     | teamID, data                                    | Updated team data
+DELETE | /team            | YES   | TL  | Delete own team          | teamID                                          | Team deletion confirmation
 POST   | /team            | YES   | User| Create new team          | name                                            | name, players, leader 
 
 
@@ -42,7 +42,34 @@ POST   | /team            | YES   | User| Create new team          | name       
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
 GET    | /league          | YES   | -   | View all leagues         | -                                               | leagues 
-PUT    | /league          | YES   | O   | Update own user league   | league, params                                  | Updated league data
-DELETE | /league          | YES   | O   | Deletes own league       | password                                        | League deletion confirmation
+PUT    | /league          | YES   | O   | Update own user league   | leagueID, data                                  | Updated league data
+DELETE | /league          | YES   | O   | Delete own league        | leagueID                                        | League deletion confirmation
 POST   | /league          | YES   | O   | Create new league        | name, Trophie, Game                             | name, teams, organizer, Trophie, game, status 
+
+
+### Games Endpoints
+
+
+METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
+-------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
+GET    | /game            | YES   | -   | View all games           | -                                               | games 
+PUT    | /game            | YES   | O   | Update game              | gameID, data                                    | Updated game data
+DELETE | /game            | YES   | O   | Delete game              | gameID                                          | game deletion confirmation
+POST   | /game            | YES   | O   | Create new game          | name, categories, company                       | name, categories, image, company
+
+
+### Trophies Endpoints
+
+
+METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
+-------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
+GET    | /trophy          | YES   | -   | View all trophies        | -                                               | trophies 
+PUT    | /trophy          | YES   | O   | Update trophy            | trophyID, params                                | Updated trophy data
+DELETE | /trophy          | YES   | O   | Delete trophy            | trophyID                                        | Trophy deletion confirmation
+POST   | /trophy          | YES   | O   | Create new trophy        | name                                            | name, image
+
+
+
+
+
 
