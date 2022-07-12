@@ -78,7 +78,7 @@ DELETE | /trophy/:ID      | YES   | O   | Delete trophy by ID      |            
 POST   | /trophy          | YES   | O   | Create new trophy        | name                                            | name, image
 
 
-### Category Endpoints
+/*### Category Endpoints
 
 
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
@@ -96,6 +96,6 @@ METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS
 GET    | /company        | YES   | -   | View all companies      | -                                                 | companies 
 PUT    | /company/:ID    | YES   | O   | Update company by ID    | data                                              | Updated company data
 DELETE | /company/:ID    | YES   | O   | Delete company by ID    |                                                   | company deletion confirmation
-POST   | /company        | YES   | O   | Create new company      | name                                              | name
+POST   | /company        | YES   | O   | Create new company      | name                                              | name */
 
 
