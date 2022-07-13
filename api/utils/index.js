@@ -20,7 +20,14 @@ function checkAuth(req, res, next) {
       console.log(error);
     }
   }
-  
+
+  function checkRoleUser(req, res, next) {
+    if (res.locals.user.role !== 'User') {
+        return res.send('User not authorized')
+    }
+    return next();
+}
+
   function checkRoleTeamLeader(req, res, next) {
       if (res.locals.user.role === 'User') {
           return res.send('User not authorized')
@@ -35,5 +42,6 @@ function checkAuth(req, res, next) {
     return next();
 }
 
+
   
-  module.exports = { checkAuth, checkRoleTeamLeader, checkRoleOrganizer };
+  module.exports = { checkAuth, checkRoleUser, checkRoleTeamLeader, checkRoleOrganizer };
