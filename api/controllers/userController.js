@@ -1,6 +1,7 @@
 const UserModel = require('../models/userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const { findById } = require('../models/userModel')
 
 async function createUser(req, res){
     try {        
@@ -52,7 +53,8 @@ async function getAllUsers(req, res){
 
 async function userProfile(req, res){
     try {
-        res.json('User Profile') //pendiente de agregar identificación de usuario
+        const userProfile = findById(res.locals.user.id)
+        res.json(userProfile)
     } catch (error) {
         console.log(error)
     }

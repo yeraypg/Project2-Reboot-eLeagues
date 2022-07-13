@@ -21,22 +21,22 @@ function checkAuth(req, res, next) {
     }
   }
 
-  function checkRoleUser(req, res, next) {
-    if (res.locals.user.role !== 'User') {
+  function checkRolUser(req, res, next) {
+    if (res.locals.user.rol !== 'User') {
         return res.send('User not authorized')
     }
     return next();
 }
 
-  function checkRoleTeamLeader(req, res, next) {
-      if (res.locals.user.role === 'User') {
+  function checkRolTeamLeader(req, res, next) {
+      if (res.locals.user.rol === 'User') {
           return res.send('User not authorized')
       }
       return next();
   }
 
-  function checkRoleOrganizer(req, res, next) {
-    if (res.locals.user.role !== 'Organizer') {
+  function checkRolOrganizer(req, res, next) {
+    if (res.locals.user.rol !== 'Organizer') {
         return res.send('User not authorized')
     }
     return next();
@@ -44,4 +44,4 @@ function checkAuth(req, res, next) {
 
 
   
-  module.exports = { checkAuth, checkRoleUser, checkRoleTeamLeader, checkRoleOrganizer };
+  module.exports = { checkAuth, checkRolUser, checkRolTeamLeader, checkRolOrganizer };

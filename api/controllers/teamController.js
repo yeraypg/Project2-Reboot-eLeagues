@@ -6,7 +6,7 @@ async function createTeam(req, res) {
         req.body.leader = res.locals.user.id
         req.body.players = [res.locals.user.id]
         const team = await TeamModel.create(req.body)   
-        await UserModel.findByIdAndUpdate(res.locals.user.id, {rol: 'TeamLeader'})         
+        await UserModel.findByIdAndUpdate(res.locals.user.id, {team: team.id, rol: 'TeamLeader'})         
         res.json(team)
     } catch (error) {
         console.log(error)
@@ -24,7 +24,7 @@ async function showAllTeams(req, res) {
 
 async function showTeam(req, res) {
     try {
-        const team = await TeamModel.findById(req.params.teamId)
+        const team = await TeamModel.findById(res.locals.user.team)
         res.json(team)
     } catch (error) {
         console.log(error)

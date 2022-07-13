@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { checkAuth, checkRoleUser, checkRoleTeamLeader, checkRoleOrganizer } = require('../utils')
+const { checkAuth, checkRolUser, checkRolTeamLeader, checkRolOrganizer } = require('../utils')
 
 const {
     createTeam,
@@ -12,9 +12,9 @@ const {
 } = require('../controllers/teamController')
 
 router
-.post('/', checkAuth, checkRoleUser, createTeam)
-.get('/', checkAuth, checkRoleOrganizer, showAllTeams)
-.get('/:teamId', showTeam)
+.post('/', checkAuth, checkRolUser, createTeam)
+.get('/', checkAuth, showAllTeams)
+.get('/profile', checkAuth, showTeam)
 .put('/', updateUserTeam)
 .put('/:teamId', updateTeamId)
 .delete('/', deleteOwnTeam)

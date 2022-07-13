@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { checkAuth, checkRoleTeamLeader, checkRoleOrganizer } = require('../utils')
+const { checkAuth, checkRolUser, checkRolTeamLeader, checkRolOrganizer } = require('../utils')
 
 const { 
     createUser,
@@ -18,13 +18,13 @@ router
 .post('/login', login)
 
 .get('/', checkAuth, getAllUsers)
-.get('/profile', userProfile) //pendiente de agregar identificación de usuario
-.get('/:id', getUserById)
+.get('/profile', checkAuth, userProfile) //pendiente de agregar identificación de usuario
+.get('/:id', checkAuth, getUserById)
 
-.put('/profile', updateUserProfile) //pendiente de agregar identificación de usuario
-.put('/:id', updateUserById)
+.put('/profile', checkAuth, updateUserProfile) //pendiente de agregar identificación de usuario
+.put('/:id', checkAuth, updateUserById)
 
-.delete('/profile', deleteUserProfile) //pendiente de agregar identificación de usuario
-.delete('/:id', deleteUserById)
+.delete('/profile', checkAuth, deleteUserProfile) //pendiente de agregar identificación de usuario
+.delete('/:id', checkAuth, deleteUserById)
 
 module.exports = router
