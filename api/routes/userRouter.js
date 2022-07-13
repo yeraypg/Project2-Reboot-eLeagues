@@ -1,7 +1,9 @@
 const router = require('express').Router()
+const { checkAuth, checkRoleTeamLeader, checkRoleOrganizer } = require('../utils')
 
 const { 
     createUser,
+    login,
     getUserById,
     getAllUsers,
     userProfile,
@@ -13,8 +15,9 @@ const {
 
 router
 .post('/', createUser)
+.post('/login', login)
 
-.get('/', getAllUsers)
+.get('/', checkAuth, getAllUsers)
 .get('/profile', userProfile) //pendiente de agregar identificación de usuario
 .get('/:id', getUserById)
 

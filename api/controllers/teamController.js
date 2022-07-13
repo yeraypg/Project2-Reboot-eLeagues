@@ -1,8 +1,12 @@
 const TeamModel = require('../models/teamModel')
+const UserModel = require('../models/userModel')
 
 async function createTeam(req, res) {
     try {
-        const team = await TeamModel.create(req.body)
+        req.body.leader = res.locals.user.id
+        req.body.players = [res.locals.user.id]
+        const team = await TeamModel.create(req.body)   
+        await UserModel.findByIdAndUpdate(res.locals.user.id, {rol: 'TeamLeader'})         
         res.json(team)
     } catch (error) {
         console.log(error)

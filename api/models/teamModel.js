@@ -9,10 +9,10 @@ const teamSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     }],
-    leader: [{
+    leader: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
-    }],
+    },
     leagues: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'league'

@@ -1,11 +1,34 @@
 const UserModel = require('../models/userModel')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 async function createUser(req, res){
     try {        
+        req.body.password = bcrypt.hashSync(req.body.password, 10)
         const user = await UserModel.create(req.body)
-        res.json(user)
+        const payload = { email: user.email }
+        const token = jwt.sign(payload, process.env.SECRET, {expiresIn: '1h'})
+        res.status(200).json({ email: user.email, token: token })
+        
     } catch (error) {
         console.log(error)  
+    }
+}
+
+async function login(req, res){
+    try {
+        const user = await UserModel.findOne({ email: req.body.email })
+        if (!user) return res.status(500).send('email or password incorrect')
+
+        bcrypt.compare(req.body.password, user.password, (err, result) => {
+            if (err) return res.status(500).send(`error: ${err}`)
+            if (!result) return res.status(500).send('email or password incorrect')
+        })
+        const payload = { email: user.email }
+        const token = jwt.sign(payload, process.env.SECRET, {expiresIn: '1h'})
+        res.status(200).json({ email: user.email, token: token })
+    } catch (error) {
+        console.log(error)
     }
 }
 
@@ -71,6 +94,7 @@ async function deleteUserProfile(req, res){
 
 module.exports = {
     createUser,
+    login,
     getUserById,
     getAllUsers,
     userProfile,
