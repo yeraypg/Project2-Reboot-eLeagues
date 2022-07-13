@@ -1,43 +1,44 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        require: true
-    },
-    password: {
-        type: String,
-        require: true
-    },
-    nick: {
-        type: String,
-        require: true,
-        unique: true
-    },
-    email: {
-        type: String,
-        require: true,
-        unique: true
-    },
-    age: {
-        type: Number
-    },
-    team: {
-        type: String
-    },
-    rol: {
-        type: String,
-        enum: ['Organizer', 'TeamLeader', 'User'],
-        default: 'User'
-    },
-    games: {
-        type: String
-    },
-    trophies: {
-        type: String
-    }
-})
+  name: {
+    type: String,
+    require: [true, 'Name is required'],
+  },
+  password: {
+    type: String,
+    require: true,
+  },
+  nick: {
+    type: String,
+    require: true,
+    unique: true,
+  },
+  email: {
+    type: String,
+    require: true,    
+    unique: true
+  },
+  age: {
+    type: Number,
+    min: [14, 'You are very young']
+  },
+  team: {
+    type: String,
+  },
+  rol: {
+    type: String,
+    enum: ['Organizer', 'TeamLeader', 'User'],
+    default: 'User',
+  },
+  games: {
+    type: String,
+  },
+  trophies: {
+    type: String,
+  },
+});
 
-const UserModel = mongoose.model('user', userSchema)
+const UserModel = mongoose.model('user', userSchema);
 
-module.exports = UserModel
+module.exports = UserModel;
