@@ -11,7 +11,7 @@ async function createTeam(req, res) {
 
 async function showAllTeams(req, res) {
     try {
-        const allTeams = await TeamModel.find(req.body)
+        const allTeams = await TeamModel.find()
         res.json(allTeams)
     } catch (error) {
         console.log(error)
