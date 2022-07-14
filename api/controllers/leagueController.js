@@ -14,7 +14,7 @@ async function createLeague(req, res) {
 
 async function showAllLeagues(req, res) {
     try {
-        const leagues = await LeagueModel.find()
+        const leagues = await LeagueModel.find(req.body, { organizer: 0})
         res.json(leagues)
     } catch (error) {
         console.log(error)
@@ -23,7 +23,7 @@ async function showAllLeagues(req, res) {
 
 async function showLeagueById(req, res) {
     try {
-        const league = await LeagueModel.findById(req.params.id)
+        const league = await LeagueModel.findById(req.params.id, { organizer: 0 })
         res.json(league)
     } catch (error) {
         console.log(error)
@@ -41,10 +41,47 @@ async function updateLeague(req, res) {
 
 async function deleteLeague(req, res) {
     try {
-        const deletedLeague = await LeagueModel.findByIdAndDelete(req.params.id)
+        const deletedLeague = await LeagueModel.findById(req.params.id)
+        for (elem of deletedLeague.teams) {
+            team = await TeamModel.findById(elem)
+            index = team.leagues.indexOf(req.params.id)
+            team.leagues.splice(index, 1)
+            await TeamModel.findByIdAndUpdate(elem, team)
+        }
+        await LeagueModel.findByIdAndDelete(req.params.id)
         res.json(deletedLeague)
     } catch (error) {
         console.log(error)
     }
 }
-module.exports = { createLeague, showAllLeagues, showLeagueById, updateLeague, deleteLeague }
+
+async function addLeagueTeam(req, res) {
+    try {
+        const league = await LeagueModel.findById(req.params.id)
+        league.teams.push(req.body.teams)        
+        const updatedLeague = await LeagueModel.findByIdAndUpdate(req.params.id, league, { new: true })
+        const team = await TeamModel.findById(req.body.teams)
+        team.leagues.push(req.params.id)
+        await TeamModel.findByIdAndUpdate(req.body.teams, team)
+        res.json(updatedLeague)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+async function deleteLeagueTeam(req, res) {
+    try {
+        const league = await LeagueModel.findById(req.params.id)
+        indexLeague = league.teams.indexOf(req.params.id)
+        league.teams.splice(indexLeague, 1)
+        await LeagueModel.findByIdAndUpdate(req.params.id, league)
+        const team = await TeamModel.findById(req.body.teams)
+        indexTeam = team.leagues.indexOf(req.params.id)
+        team.leagues.splice(indexTeam, 1)
+        await TeamModel.findByIdAndUpdate(req.body.teams, team)        
+        res.json(league)
+    } catch (error) {
+        console.log(error)
+    }
+}
+module.exports = { createLeague, showAllLeagues, showLeagueById, updateLeague, deleteLeague, addLeagueTeam, deleteLeagueTeam }
