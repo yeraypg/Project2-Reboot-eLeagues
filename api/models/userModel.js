@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema({
   }],
   trophies: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'trophie'
+    ref: 'trophy'
   }]
 });
 
