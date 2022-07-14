@@ -17,14 +17,14 @@ router
 .post('/', createUser)
 .post('/login', login)
 
-.get('/', checkAuth, getAllUsers)
-.get('/profile', checkAuth, userProfile) //pendiente de agregar identificación de usuario
-.get('/:id', checkAuth, getUserById)
+.get('/', checkAuth, checkRolOrganizer, getAllUsers)
+.get('/profile', checkAuth, userProfile)
+.get('/:id', checkAuth, checkRolOrganizer, getUserById)
 
-.put('/profile', checkAuth, updateUserProfile) //pendiente de agregar identificación de usuario
-.put('/:id', checkAuth, updateUserById)
+.put('/profile', checkAuth, updateUserProfile)
+.put('/:id', checkAuth, checkRolOrganizer, updateUserById)
 
-.delete('/profile', checkAuth, deleteUserProfile) //pendiente de agregar identificación de usuario
-.delete('/:id', checkAuth, deleteUserById)
+.delete('/profile', checkAuth, deleteUserProfile)
+.delete('/:id', checkAuth, checkRolOrganizer, deleteUserById)
 
 module.exports = router

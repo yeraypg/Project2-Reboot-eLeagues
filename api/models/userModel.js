@@ -29,19 +29,22 @@ const userSchema = new mongoose.Schema({
     min: [14, 'You are very young']
   },
   team: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'team'
   },
   rol: {
     type: String,
     enum: ['Organizer', 'TeamLeader', 'User'],
     default: 'User',
   },
-  games: {
-    type: String,
-  },
-  trophies: {
-    type: String,
-  },
+  games: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'game'
+  }],
+  trophies: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'trophie'
+  }]
 });
 
 const UserModel = mongoose.model('user', userSchema);

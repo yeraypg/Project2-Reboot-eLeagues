@@ -53,7 +53,7 @@ async function getAllUsers(req, res){
 
 async function userProfile(req, res){
     try {
-        const userProfile = findById(res.locals.user.id)
+        const userProfile = await UserModel.findById(res.locals.user.id)
         res.json(userProfile)
     } catch (error) {
         console.log(error)
@@ -71,7 +71,8 @@ async function updateUserById(req, res){
 
 async function updateUserProfile(req, res){
     try {
-        res.json('Update User Profile') //pendiente de agregar identificación de usuario
+        const updateUserProfile = await UserModel.findByIdAndUpdate(res.locals.user.id, req.body, {new: true})
+        res.json(updateUserProfile)
     } catch (error) {
         console.log(error)
     }
@@ -88,7 +89,8 @@ async function deleteUserById(req, res){
 
 async function deleteUserProfile(req, res){ 
     try {
-        res.json('Delete User Profile') //pendiente de agregar identificación de usuario
+        const deleteUserProfile = await UserModel.findByIdAndDelete(res.locals.user.id)
+        res.json(deleteUserProfile)
     } catch (error) {
         console.log(error)
     }
