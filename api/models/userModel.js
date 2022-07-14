@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema({
   rol: {
     type: String,
     enum: ['Organizer', 'TeamLeader', 'User'],
-    default: 'User',
+    default: 'User'
   },
   games: [{
     type: mongoose.Schema.Types.ObjectId,
