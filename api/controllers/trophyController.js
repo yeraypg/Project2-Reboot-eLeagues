@@ -12,7 +12,9 @@ async function createTrophy(req, res) {
 
 async function updateTrophy(req, res) {
     try {
+        console.log(req.params.id)
         const updateTrophy = await TrophyModel.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        console.log(updateTrophy)
         res.json(updateTrophy)
     } catch (error) {
         console.log(error)
@@ -25,8 +27,8 @@ async function deleteTrophy(req, res) {
         const allLeagues = await LeagueModel.find()
         for (elem of allLeagues) {
             if (elem.trophy == req.params.id){
-                delete elem.trophy
-            await LeagueModel.findByIdAndUpdate(elem.id, elem)
+                delete elem.trophy               
+            await LeagueModel.findByIdAndUpdate(elem.id, result)
             }            
         }
         await TrophyModel.findByIdAndDelete(req.params.id)

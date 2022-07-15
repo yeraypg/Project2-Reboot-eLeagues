@@ -84,4 +84,22 @@ async function deleteLeagueTeam(req, res) {
         console.log(error)
     }
 }
-module.exports = { createLeague, showAllLeagues, showLeagueById, updateLeague, deleteLeague, addLeagueTeam, deleteLeagueTeam }
+
+async function addWinnerTrophy(req, res) {
+    try {
+        const league = await LeagueModel.findById(req.params.id)
+        const team = await TeamModel.findById(req.body.team)        
+        for (elem of team.players){
+            const player = await UserModel.findById(elem._id)
+            player.trophies.push(league.trophy)
+            await UserModel.findByIdAndUpdate(player.id, player)
+        }
+        league.status = "close"
+        await LeagueModel.findByIdAndUpdate(league.id, league, { new: true })
+        res.json(league)
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+module.exports = { createLeague, showAllLeagues, showLeagueById, updateLeague, deleteLeague, addLeagueTeam, deleteLeagueTeam, addWinnerTrophy }

@@ -5,9 +5,9 @@ const { createTrophy, updateTrophy, deleteTrophy, showAllTrophies, showTrophyByI
 router
     .post('/', checkAuth, checkRolOrganizer, createTrophy)
 
-    .put('/', checkAuth, checkRolOrganizer, updateTrophy)
+    .put('/:id', checkAuth, checkRolOrganizer, updateTrophy)
 
-    .delete('/:id', checkAuth, checkRolOrganizer, deleteTrophy)
+    //.delete('/:id', checkAuth, checkRolOrganizer, deleteTrophy)
 
     .get('/', checkAuth, checkRolOrganizer, showAllTrophies)
     .get('/:id', checkAuth, checkRolOrganizer, showTrophyById)
