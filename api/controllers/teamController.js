@@ -15,7 +15,7 @@ async function createTeam(req, res) {
 
 async function showAllTeams(req, res) {
     try {
-        const allTeams = await TeamModel.find(req.body, {_id: 0, leagues: 0, __v: 0})
+        const allTeams = await TeamModel.find(req.body, {leagues: 0, __v: 0})
         .populate('players', ['name', 'nick'])
         .populate('leader', ['name', 'nick'])
         res.json(allTeams)
@@ -26,7 +26,7 @@ async function showAllTeams(req, res) {
 
 async function showTeam(req, res) {
     try {
-        const team = await TeamModel.findById(res.locals.user.team, {_id: 0, leagues: 0, __v: 0})
+        const team = await TeamModel.findById(res.locals.user.team, {leagues: 0, __v: 0})
         .populate('leader', ['name', 'nick'])
         .populate('players', ['name', 'nick'])
         res.json(team)

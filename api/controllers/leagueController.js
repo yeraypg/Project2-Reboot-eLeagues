@@ -15,6 +15,7 @@ async function createLeague(req, res) {
 async function showAllLeagues(req, res) {
     try {
         const leagues = await LeagueModel.find(req.body, { organizer: 0})
+        .populate('game')
         res.json(leagues)
     } catch (error) {
         console.log(error)
