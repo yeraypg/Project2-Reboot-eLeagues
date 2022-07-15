@@ -14,7 +14,7 @@ async function createLeague(req, res) {
 
 async function showAllLeagues(req, res) {
     try {
-        const leagues = await LeagueModel.find(req.body, { organizer: 0})
+        const leagues = await LeagueModel.find()
         res.json(leagues)
     } catch (error) {
         console.log(error)
@@ -23,7 +23,7 @@ async function showAllLeagues(req, res) {
 
 async function showLeagueById(req, res) {
     try {
-        const league = await LeagueModel.findById(req.params.id, { organizer: 0 })
+        const league = await LeagueModel.findById(req.params.id)
         res.json(league)
     } catch (error) {
         console.log(error)

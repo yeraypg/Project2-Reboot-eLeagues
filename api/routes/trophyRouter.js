@@ -1,12 +1,5 @@
 const router = require('express').Router()
-
-const {
-    checkAuth,
-    checkRolUser,
-    checkRolTeamLeader,
-    checkRolOrganizer
-} = require('../utils')
-
+const { checkAuth, checkRolUser, checkRolTeamLeader, checkRolOrganizer } = require('../utils')
 const { createTrophy, updateTrophy, deleteTrophy, showAllTrophies, showTrophyById } = require('../controllers/trophyController')
 
 router
@@ -14,7 +7,7 @@ router
 
     .put('/', checkAuth, checkRolOrganizer, updateTrophy)
 
-    .delete('/', checkAuth, checkRolOrganizer, deleteTrophy)
+    .delete('/:id', checkAuth, checkRolOrganizer, deleteTrophy)
 
     .get('/', checkAuth, checkRolOrganizer, showAllTrophies)
     .get('/:id', checkAuth, checkRolOrganizer, showTrophyById)
