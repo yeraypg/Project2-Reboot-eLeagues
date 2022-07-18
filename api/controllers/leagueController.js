@@ -14,7 +14,7 @@ async function createLeague(req, res) {
 
 async function showAllLeagues(req, res) {
     try {
-        const leagues = await LeagueModel.find(req.body, { organizer: 0})
+        const leagues = await LeagueModel.find(req.body, { organizer: 0}).populate('teams', ['name'])
         .populate('game')
         res.json(leagues)
     } catch (error) {
@@ -24,7 +24,7 @@ async function showAllLeagues(req, res) {
 
 async function showLeagueById(req, res) {
     try {
-        const league = await LeagueModel.findById(req.params.id)
+        const league = await LeagueModel.findById(req.params.id).populate('teams', ['name'])
         res.json(league)
     } catch (error) {
         console.log(error)
@@ -59,6 +59,9 @@ async function deleteLeague(req, res) {
 async function addLeagueTeam(req, res) {
     try {
         const league = await LeagueModel.findById(req.params.id)
+        if (league.teams.includes(req.body.teams)) { 
+            res.json("This team is already in this league") 
+            return}
         league.teams.push(req.body.teams)        
         const updatedLeague = await LeagueModel.findByIdAndUpdate(req.params.id, league, { new: true })
         const team = await TeamModel.findById(req.body.teams)
@@ -87,8 +90,11 @@ async function deleteLeagueTeam(req, res) {
 }
 
 async function addWinnerTrophy(req, res) {
-    try {
+    try {        
         const league = await LeagueModel.findById(req.params.id)
+        if (league.status == 'close') { 
+            res.json("This league is already closed") 
+            return}
         const team = await TeamModel.findById(req.body.team)        
         for (elem of team.players){
             const player = await UserModel.findById(elem._id)

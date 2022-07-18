@@ -28,7 +28,7 @@ async function deleteTrophy(req, res) {
         for (elem of allLeagues) {
             if (elem.trophy == req.params.id){
                 delete elem.trophy               
-            await LeagueModel.findByIdAndUpdate(elem.id, result)
+            await LeagueModel.findByIdAndUpdate(elem.id, elem)
             }            
         }
         await TrophyModel.findByIdAndDelete(req.params.id)
@@ -56,11 +56,15 @@ async function showTrophyById(req, res) {
     }
 }
 
-
-module.exports = { 
-    createTrophy, 
-    updateTrophy, 
-    deleteTrophy, 
-    showAllTrophies, 
-    showTrophyById 
+async function showTrophyImage(req, res) {
+    try {
+        const trophy = await TrophyModel.findById(req.params.id)
+        res.status(200).sendFile( trophy.image, {root: 'resources/trophies'})
+        
+    } catch (error) {
+        console.log(error)
+    }
 }
+
+
+module.exports = { createTrophy, updateTrophy, deleteTrophy, showAllTrophies, showTrophyById, showTrophyImage }
