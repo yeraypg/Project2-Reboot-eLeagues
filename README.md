@@ -9,8 +9,8 @@ The Authentication flow for the application is:
 
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
-POST   | /auth/signup     | -     | -   | User Signup              | name, username, email, password                 | token
-POST   | /auth/login      | -     | -   | User Login               | username, password                              | token
+POST   | /user/           | -     | -   | User Signup              | name, nick, email, password                     | email and token
+POST   | /user/login      | -     | -   | User Login               | email, password                                 | email and token
 
 
 ### User Endpoints
@@ -18,12 +18,13 @@ POST   | /auth/login      | -     | -   | User Login               | username, p
 
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
-GET    | /user/profile    | YES   | -   | View own user profile    | -                                         | name, nick, email, age, team, rol, games, trophies
-GET    | /user/:ID        | YES   | O   | View user profile by ID  |                                           | name, nick, email, age, team, rol, games, trophies
-PUT    | /user/profile    | YES   | -   | Update own user profile  | data                                            | Updated user data
-PUT    | /user/:ID        | YES   | O   | Update user profile by ID| Data                                            | Updated user data
-DELETE | /user/profile    | YES   | -   | Delete own user account  | password                                        | User deletion confirmation
-DELETE | /user/:ID        | YES   | O   | Delete user by ID        | userID                                          | User deletion confirmation
+GET    | /user/profile    | YES   | U   | View own user profile    | -                                               | user own profile
+GET    | /user/:ID        | YES   | O   | View user profile by ID  |                                                 | user profile
+GET    | /user/           | YES   | O   | View all users           |                                                 | list of all users
+PUT    | /user/profile    | YES   | U   | Update own user profile  | name, password, email, nick, age                | Updated user data
+PUT    | /user/:ID        | YES   | O   | Update user profile by ID| name, password, email, nick, age, rol           | Updated user data
+DELETE | /user/profile    | YES   | U   | Delete own user account  |                                                 | User deletion confirmation
+DELETE | /user/:ID        | YES   | O   | Delete user by ID        |                                                 | User deletion confirmation
 
 
 ### Team Endpoints
@@ -31,11 +32,13 @@ DELETE | /user/:ID        | YES   | O   | Delete user by ID        | userID     
 
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
-GET    | /team            | YES   | -   | View all teams           | -                                               | teams 
-GET    | /team/:ID        | YES   | O   | View one team by ID      |                                                 | team
-PUT    | /team            | YES   | TL  | Update own user team     | data                                            | Updated team data
-PUT    | /team/:ID        | YES   | O   | Update one team by ID    | data                                            | Updated team data
-DELETE | /team            | YES   | TL  | Delete own team          |                                                 | Team deletion confirmation
+GET    | /team            | YES   | U   | View all teams           | -                                               | List of all teams 
+GET    | /team/:ID        | YES   | U   | View one team by ID      | -                                               | team data
+PUT    | /team/profile    | YES   | TL  | Update own user team     | name                                            | Updated team name
+PUT    | /team/:ID        | YES   | O   | Update one team by ID    | name                                            | Updated team name
+PATCH  | /team/addplayer  | YES   | TL  | add player to team       | userID                                          | Updated team
+PATCH  | /team/deleteplayer | YES   | TL  | delete player from team | userID                                         | Updated team
+DELETE | /team/profile    | YES   | TL  | Delete own team          |                                                 | Team deletion confirmation
 DELETE | /team/:ID        | YES   | O   | Delete one team by ID    |                                                 | Team deletion confirmation
 POST   | /team            | YES   | User| Create new team          | name                                            | name, players, leader 
 
