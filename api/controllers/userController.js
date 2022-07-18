@@ -80,7 +80,8 @@ async function updateUserProfile(req, res){
 async function deleteUserById(req, res){
     try {
         const userDelete = await UserModel.findByIdAndDelete(req.params.id)
-        res.json(userDelete)
+        if (!userDelete) {res.json("This user doesn´t exist")}
+        else {res.json(userDelete)}
     } catch (error) {
         console.log(error)
     }
