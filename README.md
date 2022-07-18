@@ -37,10 +37,10 @@ GET    | /team/:ID        | YES   | U   | View one team by ID      | -          
 PUT    | /team/profile    | YES   | TL  | Update own user team     | name                                            | Updated team name
 PUT    | /team/:ID        | YES   | O   | Update one team by ID    | name                                            | Updated team name
 PATCH  | /team/addplayer  | YES   | TL  | add player to team       | userID                                          | Updated team
-PATCH  | /team/deleteplayer | YES   | TL  | delete player from team | userID                                         | Updated team
+PATCH  | /team/deleteplayer | YES | TL  | delete player from team  | userID                                          | Updated team
 DELETE | /team/profile    | YES   | TL  | Delete own team          |                                                 | Team deletion confirmation
 DELETE | /team/:ID        | YES   | O   | Delete one team by ID    |                                                 | Team deletion confirmation
-POST   | /team            | YES   | User| Create new team          | name                                            | name, players, leader 
+POST   | /team            | YES   | U   | Create new team          | name                                            | name, players, leader 
 
 
 ### League Endpoints
@@ -48,11 +48,13 @@ POST   | /team            | YES   | User| Create new team          | name       
 
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
-GET    | /league          | YES   | -   | View all leagues         | -                                               | leagues 
-GET    | /league/:ID      | YES   | O   | View one league by ID    |                                                 | leagues by status (open, close) 
-PUT    | /league/:ID      | YES   | O   | Update one league by ID  | data                                            | Updated league data
-PUT    | /league/:ID/winners | YES   | O   | Assign Trophy         | teamID                                          | team players, trophy
-DELETE | /league/:ID      | YES   | O   | Delete one league by ID  |                                                 | League deletion confirmation
+GET    | /league          | YES   | U   | View all leagues         | -                                               | List of all leagues 
+GET    | /league/:LeagueId      | YES   | U   | View one league by ID    |                                                 | League info (teams, trophy, game)
+PUT    | /league/:LeagueId      | YES   | O   | Update one league by ID  | name, status, game, trophy                      | Updated league data
+PATCH  | /league/addTeam/:LeagueId  | YES   | O   | add Team to league       | TeamId                                          | Updated league data
+PATCH  | /league/deleteTeam:LeagueId | YES   | O   | delete Team from league  | TeamId                                        | Updated league data
+DELETE | /league/:LeagueId      | YES   | O   | Delete one league by ID  |                                                 | League deletion confirmation
+POST   | /league/addWinner/:LeagueId | YES   | O   | Assign winner trophy         | teamID                                          | League Status Changed
 POST   | /league          | YES   | O   | Create new league        | name, Trophie, Game                             | name, teams, organizer, Trophie, game, status 
 
 
