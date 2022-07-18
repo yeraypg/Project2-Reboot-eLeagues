@@ -1,7 +1,11 @@
 # Project2-Reboot-eLeagues
 
+API created for manage online leagues.
+
 All API Request must be prepended with /api
 
+Rol leyend:
+  U: User  / TL: Team Leader  / O: Organizer
 
 ### Authentication Endpoints
 
