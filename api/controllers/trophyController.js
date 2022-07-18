@@ -57,4 +57,10 @@ async function showTrophyById(req, res) {
 }
 
 
-module.exports = { createTrophy, updateTrophy, deleteTrophy, showAllTrophies, showTrophyById }
+module.exports = { 
+    createTrophy, 
+    updateTrophy, 
+    deleteTrophy, 
+    showAllTrophies, 
+    showTrophyById 
+}
