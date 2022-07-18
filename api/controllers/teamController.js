@@ -56,6 +56,9 @@ async function updateTeamId(req, res) {
 async function addPlayer(req, res) {
     try {
         const team = await TeamModel.findById(res.locals.user.team)
+        if (team.players.includes(req.body.players)) { 
+            res.json("This player is already in this team") 
+            return}
         team.players.push(req.body.players)
         await TeamModel.findByIdAndUpdate(res.locals.user.team, team, {new: true})
         await UserModel.findByIdAndUpdate(req.body.players, {team: team.id})

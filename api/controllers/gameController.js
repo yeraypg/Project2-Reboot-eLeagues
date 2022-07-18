@@ -1,6 +1,4 @@
 const GameModel = require('../models/gameModel')
-const LeagueModel = require('../models/leagueModel')
-
 
 async function createGame(req, res) {
     try {
@@ -29,6 +27,15 @@ async function showGame(req, res) {
     }
 }
 
+async function showGameImage(req, res) {
+    try {
+        const game = await GameModel.findById(req.params.gameId, {__v: 0})
+        res.status(200).sendFile( game.image, {root: 'resources/games'})
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 async function updateGame(req, res) {
     try {
         const modGame = await GameModel.findByIdAndUpdate(req.params.gameId, req.body, {new: true})
@@ -52,5 +59,6 @@ module.exports = {
     showAllGames,
     showGame,
     updateGame,
-    deleteGame
+    deleteGame,
+    showGameImage
 }
