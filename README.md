@@ -63,11 +63,12 @@ POST   | /league          | YES   | O   | Create new league        | name, Troph
 
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
-GET    | /game            | YES   | -   | View all games           | -                                               | games 
-GET    | /game/:ID        | YES   | -   | View game by ID          |                                                 | game
-PUT    | /game/:ID        | YES   | O   | Update game by ID        | data                                            | Updated game data
-DELETE | /game/:ID        | YES   | O   | Delete game by ID        |                                                 | game deletion confirmation
-POST   | /game            | YES   | O   | Create new game          | name, categories, company                       | name, categories, image, company
+GET    | /game            | YES   | U   | View all games           | -                                               | List of all games 
+GET    | /game/image/:GameId | YES   | U   | View game image       | -                                               | Game image 
+GET    | /game/:GameId       | YES   | U   | View game by ID       | -                                               | Game info
+PUT    | /game/:GameId       | YES   | O   | Update game by ID     | name, category, company, image                  | Updated game data
+DELETE | /game/:GameId       | YES   | O   | Delete game by ID     |                                                 | game deletion confirmation
+POST   | /game            | YES   | O   | Create new game          | name, category, company, image                  | game creation confirmation
 
 
 ### Trophy Endpoints
@@ -75,9 +76,10 @@ POST   | /game            | YES   | O   | Create new game          | name, categ
 
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
-GET    | /trophy          | YES   | -   | View all trophies        | -                                               | trophies 
-GET    | /trophy/:ID      | YES   | -   | View trophy by ID        |                                                 | trophy 
-PUT    | /trophy/:ID      | YES   | O   | Update trophy by ID      | data                                            | Updated trophy data
-DELETE | /trophy/:ID      | YES   | O   | Delete trophy by ID      |                                                 | Trophy deletion confirmation
-POST   | /trophy          | YES   | O   | Create new trophy        | name                                            | name, image
+GET    | /trophy          | YES   | U   | View all trophies        | -                                               | List of all trophies 
+GET    | /trophy/:TrophyId      | YES   | U   | View trophy by ID        |                                                 | Trophy info 
+GET    | /trophy/image/:TrophyId      | YES   | U   | View image trophy by ID    |                                                 | Trophy image 
+PUT    | /trophy/:TrophyId      | YES   | O   | Update trophy by ID      | name, image                                     | Updated trophy data
+DELETE | /trophy/:TrophyId      | YES   | O   | Delete trophy by ID      |                                                 | Trophy deletion confirmation
+POST   | /trophy          | YES   | O   | Create new trophy        | name, image                                           | Troophy creation confirmation
 
