@@ -5,16 +5,15 @@ All API Request must be prepended with /api
 Rol leyend:
   U: User  / TL: Team Leader  / O: Organizer
 
-<details><summary>CLICK ME</summary>
+<details><summary>EXPAND</summary>
 <p>
 
-#### yes, even hidden code blocks!
+#### METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
+-------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
+POST   | /user/           | -     | -   | User Signup              | name, nick, email, password                     | email and token
+POST   | /user/login      | -     | -   | User Login               | email, password                                 | email and token
 
-```python
-print("hello world!")
-```
-
-</p>
+</p></details>
 
 
 ### Authentication Endpoints
