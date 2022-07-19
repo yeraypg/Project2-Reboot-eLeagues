@@ -1,12 +1,13 @@
 # Project2-Reboot-eLeagues
 
-<details><summary>Signup</summary>
+<details><summary>### Authentication Endpoints</summary>
 <p>
 
 #### 
-  METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
+METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
 POST   | /user/           | -     | -   | User Signup              | name, nick, email, password                     | email and token
+POST   | /user/login      | -     | -   | User Login               | email, password                                 | email and token
 </p>
 </details>
 
