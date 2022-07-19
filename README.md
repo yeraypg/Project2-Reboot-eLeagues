@@ -27,7 +27,7 @@ This is MVP 1.0
 ## API-Endpoints
 All API Request must be prepended with /api
 
-<details><summary>🔐 Authentication Endpoints</summary>
+<details><summary>🔑 Authentication Endpoints</summary>
 <p>
 
  METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
@@ -52,7 +52,7 @@ DELETE | /user/:ID        | YES   | O   | Delete user by ID        |            
 
   </p></details>
   
-<details><summary>Team Endpoints</summary>
+<details><summary>🧑‍🤝‍🧑 Team Endpoints</summary>
 <p>  
   
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
@@ -69,7 +69,7 @@ POST   | /team            | YES   | U   | Create new team          | name       
   
 </p></details>  
   
-<details><summary>League Endpoints</summary>
+<details><summary>👨‍👨‍👧‍👦 League Endpoints</summary>
 <p>  
   
  METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
@@ -85,7 +85,7 @@ POST   | /league          | YES   | O   | Create new league        | name, Troph
   
  </p></details>
  
-<details><summary>Game Endpoints</summary>
+<details><summary>⛷️ Game Endpoints</summary>
 <p>  
   
   METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
