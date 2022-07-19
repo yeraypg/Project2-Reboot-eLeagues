@@ -1,8 +1,10 @@
 # Project2 - BackEnd API - Reboot-eLeagues
 BackEnd API to manage online gaming leagues.  We have incorporated methods to create leagues, teams, users... add players to teams, teams to leagues... distribute trophies to the winning team... add games, trophies
 
-Users Rol leyend:
-  U: User  / TL: Team Leader  / O: Organizer
+We have incorporated an authentication system with 3 different roles:
+- U: User
+- TL: Team Leader
+- O: Organizer
   
 ## API Install Dependencies
 The first time you may want to make sure you have the dependencies installed. To do so, just go to the terminal and type:
