@@ -1,14 +1,14 @@
 # Project2-Reboot-eLeagues
 
-<details><summary>CLICK ME</summary>
+<details><summary>Signup</summary>
 <p>
 
-#### yes, even hidden code blocks!
-
-```python
-print("hello world!")
-```
-
+#### 
+  Token: -
+  Rol: -
+  Description: User signup
+  Post Params: name, nick, email, password
+  Return: email and token
 </p>
 </details>
 
