@@ -4,11 +4,9 @@
 <p>
 
 #### 
-  Token: -
-  Rol: -
-  Description: User signup
-  Post Params: name, nick, email, password
-  Return: email and token
+  METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
+-------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
+POST   | /user/           | -     | -   | User Signup              | name, nick, email, password                     | email and token
 </p>
 </details>
 
