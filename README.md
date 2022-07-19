@@ -5,7 +5,7 @@ All API Request must be prepended with /api
 Rol leyend:
   U: User  / TL: Team Leader  / O: Organizer
   
-## API Installation
+## API Install Dependencies
 The first time you may want to make sure you have the dependencies installed. To do so, just go to the terminal and type:
 
 ```
