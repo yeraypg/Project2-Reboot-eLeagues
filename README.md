@@ -5,7 +5,8 @@ All API Request must be prepended with /api
 Rol leyend:
   U: User  / TL: Team Leader  / O: Organizer
 
-<details><summary>EXPAND</summary>
+
+<details><summary>Authentication Endpoints</summary>
 <p>
 
  METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
@@ -15,7 +16,22 @@ POST   | /user/login      | -     | -   | User Login               | email, pass
 
 </p></details>
 
+<details><summary>User Endpoints</summary>
+<p>
+  
+ METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
+-------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
+GET    | /user/profile    | YES   | U   | View own user profile    | -                                               | user own profile
+GET    | /user/:ID        | YES   | O   | View user profile by ID  |                                                 | user profile
+GET    | /user/           | YES   | O   | View all users           |                                                 | list of all users
+PUT    | /user/profile    | YES   | U   | Update own user profile  | name, password, email, nick, age                | Updated user data
+PUT    | /user/:ID        | YES   | O   | Update user profile by ID| name, password, email, nick, age, rol           | Updated user data
+DELETE | /user/profile    | YES   | U   | Delete own user account  |                                                 | User deletion confirmation
+DELETE | /user/:ID        | YES   | O   | Delete user by ID        |                                                 | User deletion confirmation
 
+  </p></details>
+  
+  
 ### Authentication Endpoints
 
 The Authentication flow for the application is:
