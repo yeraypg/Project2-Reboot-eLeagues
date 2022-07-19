@@ -1,6 +1,5 @@
 # Project2-Reboot-eLeagues
-
-<details><summary>### Authentication Endpoints</summary>
+### Authentication Endpoints <details><summary> Expand</summary>
 <p>
 
 #### 
