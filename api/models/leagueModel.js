@@ -16,13 +16,11 @@ const leagueSchema = new mongoose.Schema({
   },
   trophy: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'trophy',
-    //require: [true, 'Trophy is required']
+    ref: 'trophy'    
   },
   game: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'game',
-    //require: [true, 'Game is required']
+    ref: 'game'
   },
   status: {
     type: String,
