@@ -1,8 +1,7 @@
 # Project2 - BackEnd API - Reboot-eLeagues
+BackEnd API to manage online gaming leagues.  We have incorporated methods to create leagues, teams, users... add players to teams, teams to leagues... distribute trophies to the winning team... add games, trophies
 
-All API Request must be prepended with /api
-
-Rol leyend:
+Users Rol leyend:
   U: User  / TL: Team Leader  / O: Organizer
   
 ## API Install Dependencies
@@ -24,6 +23,8 @@ This is MVP 1.0
 
 
 ## API-Endpoints
+All API Request must be prepended with /api
+
 <details><summary>Authentication Endpoints</summary>
 <p>
 
