@@ -1,18 +1,21 @@
 # Project2-Reboot-eLeagues
-### Authentication Endpoints 
-#### <details><summary> Expand</summary>
-<p>
-METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
--------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
-POST   | /user/           | -     | -   | User Signup              | name, nick, email, password                     | email and token
-POST   | /user/login      | -     | -   | User Login               | email, password                                 | email and token
-</p>
-</details>
 
 All API Request must be prepended with /api
 
 Rol leyend:
   U: User  / TL: Team Leader  / O: Organizer
+
+<details><summary>CLICK ME</summary>
+<p>
+
+#### yes, even hidden code blocks!
+
+```python
+print("hello world!")
+```
+
+</p>
+
 
 ### Authentication Endpoints
 
