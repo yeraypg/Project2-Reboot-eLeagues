@@ -27,7 +27,7 @@ This is MVP 1.0
 ## API-Endpoints
 All API Request must be prepended with /api
 
-<details><summary>Authentication Endpoints</summary>
+<details><summary>🔐 Authentication Endpoints</summary>
 <p>
 
  METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
