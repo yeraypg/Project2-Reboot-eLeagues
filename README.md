@@ -37,7 +37,7 @@ POST   | /user/login      | -     | -   | User Login               | email, pass
 
 </p></details>
 
-<details><summary>User Endpoints</summary>
+<details><summary>🙍 User Endpoints</summary>
 <p>
   
  METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
@@ -99,7 +99,7 @@ POST   | /game            | YES   | O   | Create new game          | name, categ
   
   </p></details>  
   
-<details><summary>Game Endpoints</summary>
+<details><summary>🏆 Trophy Endpoints</summary>
 <p> 
   
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
