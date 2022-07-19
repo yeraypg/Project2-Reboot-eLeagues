@@ -1,6 +1,16 @@
 # Project2-Reboot-eLeagues
 
-API created for manage online leagues.
+<details><summary>CLICK ME</summary>
+<p>
+
+#### yes, even hidden code blocks!
+
+```python
+print("hello world!")
+```
+
+</p>
+</details>
 
 All API Request must be prepended with /api
 
