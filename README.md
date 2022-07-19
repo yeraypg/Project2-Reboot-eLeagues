@@ -18,6 +18,11 @@ $ npm install
 $ nodemon index.js
 ```
 
+## API Version
+This is MVP 1.0
+
+
+
 ## API-Endpoints
 <details><summary>Authentication Endpoints</summary>
 <p>
