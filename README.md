@@ -1,11 +1,24 @@
-# Project2-Reboot-eLeagues
+# Project2 - BackEnd API - Reboot-eLeagues
 
 All API Request must be prepended with /api
 
 Rol leyend:
   U: User  / TL: Team Leader  / O: Organizer
+  
+## API Installation
+The first time you may want to make sure you have the dependencies installed. To do so, just go to the terminal and type:
 
+```
+$ npm install
+```
 
+## Start Local Server
+
+```
+$ nodemon index.js
+```
+
+## API-Endpoints
 <details><summary>Authentication Endpoints</summary>
 <p>
 
