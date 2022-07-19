@@ -109,4 +109,13 @@ async function addWinnerTrophy(req, res) {
         console.log(error)
     }
 }
-module.exports = { createLeague, showAllLeagues, showLeagueById, updateLeague, deleteLeague, addLeagueTeam, deleteLeagueTeam, addWinnerTrophy }
+module.exports = { 
+    createLeague, 
+    showAllLeagues, 
+    showLeagueById, 
+    updateLeague, 
+    deleteLeague, 
+    addLeagueTeam, 
+    deleteLeagueTeam, 
+    addWinnerTrophy 
+}

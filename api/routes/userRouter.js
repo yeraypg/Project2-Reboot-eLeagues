@@ -1,5 +1,11 @@
 const router = require('express').Router()
-const { checkAuth, checkRolUser, checkRolTeamLeader, checkRolOrganizer } = require('../utils')
+
+const { 
+    checkAuth, 
+    checkRolUser, 
+    checkRolTeamLeader, 
+    checkRolOrganizer 
+} = require('../utils')
 
 const { 
     createUser,

@@ -44,4 +44,9 @@ function checkAuth(req, res, next) {
 
 
   
-  module.exports = { checkAuth, checkRolUser, checkRolTeamLeader, checkRolOrganizer };
+  module.exports = { 
+    checkAuth, 
+    checkRolUser, 
+    checkRolTeamLeader, 
+    checkRolOrganizer 
+  }
