@@ -31,34 +31,9 @@ DELETE | /user/:ID        | YES   | O   | Delete user by ID        |            
 
   </p></details>
   
+<details><summary>Team Endpoints</summary>
+<p>  
   
-### Authentication Endpoints
-
-The Authentication flow for the application is:
-
-METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
--------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
-POST   | /user/           | -     | -   | User Signup              | name, nick, email, password                     | email and token
-POST   | /user/login      | -     | -   | User Login               | email, password                                 | email and token
-
-
-### User Endpoints
-
-
-METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
--------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
-GET    | /user/profile    | YES   | U   | View own user profile    | -                                               | user own profile
-GET    | /user/:ID        | YES   | O   | View user profile by ID  |                                                 | user profile
-GET    | /user/           | YES   | O   | View all users           |                                                 | list of all users
-PUT    | /user/profile    | YES   | U   | Update own user profile  | name, password, email, nick, age                | Updated user data
-PUT    | /user/:ID        | YES   | O   | Update user profile by ID| name, password, email, nick, age, rol           | Updated user data
-DELETE | /user/profile    | YES   | U   | Delete own user account  |                                                 | User deletion confirmation
-DELETE | /user/:ID        | YES   | O   | Delete user by ID        |                                                 | User deletion confirmation
-
-
-### Team Endpoints
-
-
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
 GET    | /team            | YES   | U   | View all teams           | -                                               | List of all teams 
@@ -70,12 +45,13 @@ PATCH  | /team/deleteplayer | YES | TL  | delete player from team  | userID     
 DELETE | /team/profile    | YES   | TL  | Delete own team          |                                                 | Team deletion confirmation
 DELETE | /team/:ID        | YES   | O   | Delete one team by ID    |                                                 | Team deletion confirmation
 POST   | /team            | YES   | U   | Create new team          | name                                            | name, players, leader 
-
-
-### League Endpoints
-
-
-METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
+  
+</p></details>  
+  
+<details><summary>League Endpoints</summary>
+<p>  
+  
+ METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
 GET    | /league          | YES   | U   | View all leagues         | -                                               | List of all leagues 
 GET    | /league/:LeagueId      | YES   | U   | View one league by ID    |                                                 | League info (teams, trophy, game)
@@ -85,12 +61,13 @@ PATCH  | /league/deleteTeam:LeagueId | YES   | O   | delete Team from league  | 
 DELETE | /league/:LeagueId      | YES   | O   | Delete one league by ID  |                                                 | League deletion confirmation
 POST   | /league/addWinner/:LeagueId | YES   | O   | Assign winner trophy         | teamID                                          | League Status Changed
 POST   | /league          | YES   | O   | Create new league        | name, Trophie, Game                             | name, teams, organizer, Trophie, game, status 
-
-
-### Game Endpoints
-
-
-METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
+  
+ </p></details>
+ 
+<details><summary>Game Endpoints</summary>
+<p>  
+  
+  METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
 GET    | /game            | YES   | U   | View all games           | -                                               | List of all games 
 GET    | /game/image/:GameId | YES   | U   | View game image       | -                                               | Game image 
@@ -98,11 +75,12 @@ GET    | /game/:GameId       | YES   | U   | View game by ID       | -          
 PUT    | /game/:GameId       | YES   | O   | Update game by ID     | name, category, company, image                  | Updated game data
 DELETE | /game/:GameId       | YES   | O   | Delete game by ID     |                                                 | game deletion confirmation
 POST   | /game            | YES   | O   | Create new game          | name, category, company, image                  | game creation confirmation
-
-
-### Trophy Endpoints
-
-
+  
+  </p></details>  
+  
+<details><summary>Game Endpoints</summary>
+<p> 
+  
 METHOD | ENDPOINT         | TOKEN | ROL | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|-----|--------------------------|-------------------------------------------------|--------------------
 GET    | /trophy          | YES   | U   | View all trophies        | -                                               | List of all trophies 
@@ -111,4 +89,5 @@ GET    | /trophy/image/:TrophyId      | YES   | U   | View image trophy by ID   
 PUT    | /trophy/:TrophyId      | YES   | O   | Update trophy by ID      | name, image                                     | Updated trophy data
 DELETE | /trophy/:TrophyId      | YES   | O   | Delete trophy by ID      |                                                 | Trophy deletion confirmation
 POST   | /trophy          | YES   | O   | Create new trophy        | name, image                                           | Troophy creation confirmation
-
+  
+   </p></details> 
