@@ -16,7 +16,6 @@ const app = express();
     .use(cors('*'))
     .use(morgan('dev'))
     .use(express.json())
-    .use(express.static(path.join(__dirname, 'public')))
     .use('/api',require('./api/routes'))
     .listen(process.env.PORT, () => {
         console.log(`connected to port: ${process.env.PORT}`)
