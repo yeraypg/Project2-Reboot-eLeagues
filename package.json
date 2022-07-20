@@ -1,4 +1,10 @@
 {
+  "engines": {
+	    "node": "16.x"
+	},
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
